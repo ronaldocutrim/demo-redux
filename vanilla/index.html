@@ -1,16 +1,78 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="./script.js"></script>
-    <title>vanilla redux</title>
+    <title>Vanilla Redux Mock View</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="app">
-      <h1 id="greeting"></h1>
-      <button>Disparar redux</button>
-    </div>
+    <main class="layout">
+      <!-- === USER SECTION === -->
+      <section class="card user-card">
+        <p class="eyebrow">Aluno</p>
+        <h1 id="user-name">Ronaldo Souza Cutrim Filho</h1>
+
+        <label for="user-email" class="eyebrow">Email</label>
+        <input
+          id="user-email"
+          type="email"
+          value="ronaldo.cutrim@example.com"
+          class="user-email"
+        />
+
+        <p class="access-days">
+          Dias restantes de acesso:
+          <span id="user-access" class="access-chip">28 dias</span>
+        </p>
+
+        <div class="access-controls">
+          <button>+1 dia</button>
+          <button>-1 dia</button>
+        </div>
+      </section>
+
+      <!-- === LESSONS SECTION === -->
+      <section class="card lessons-card">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Progresso</p>
+            <h2>Aulas</h2>
+          </div>
+          <span id="lessons-counter" class="counter-chip">3/10</span>
+        </div>
+
+        <ul id="lesson-list" class="lesson-list">
+          <li class="lesson">
+            <div class="lesson-info">
+              <p class="lesson-name">Introdução ao Curso</p>
+              <p class="lesson-status">Pendente</p>
+            </div>
+            <span>🟩</span>
+          </li>
+
+          <li class="lesson lesson--done">
+            <div class="lesson-info">
+              <p class="lesson-name">Fundamentos de HTML</p>
+              <p class="lesson-status">Concluída</p>
+            </div>
+            <span>✅</span>
+          </li>
+
+          <li class="lesson lesson--done">
+            <div class="lesson-info">
+              <p class="lesson-name">CSS Moderno e Layouts</p>
+              <p class="lesson-status">Concluída</p>
+            </div>
+            <span>✅</span>
+          </li>
+        </ul>
+
+        <div class="reset-wrapper">
+          <button>🔄 Resetar curso</button>
+        </div>
+      </section>
+    </main>
   </body>
+  <script type="module" src="./script/index.js"></script>
 </html>
