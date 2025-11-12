@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useDispatch, useSelector } from "react-redux";
+
+const selectCount = (state) => state.count;
 
 function App() {
-  const [count, setCount] = useState(0)
+	const dispatch = useDispatch();
+	const count = useSelector(selectCount);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const increment = () => dispatch({ type: "counter/increment" });
+	const decrement = () => dispatch({ type: "counter/decrement" });
+	const reset = () => dispatch({ type: "counter/reset" });
+
+	return (
+		<section style={{ padding: "2rem", textAlign: "center" }}>
+			<h1>Demo React Redux</h1>
+			<p style={{ fontSize: "2rem", margin: "1rem 0" }}>{count}</p>
+			<div style={{ display: "flex", gap: "0.5rem", justifyContent: "center" }}>
+				<button onClick={decrement}>-1</button>
+				<button onClick={reset}>Reset</button>
+				<button onClick={increment}>+1</button>
+			</div>
+		</section>
+	);
 }
 
-export default App
+export default App;
